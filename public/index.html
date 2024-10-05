@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Activity Logger</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        .action-buttons {
+            margin-top: 20px;
+        }
+        .feedback {
+            margin-top: 20px;
+        }
+        .log-status {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3 class="center-align">User Activity Logger</h3>
+        <p class="center-align">Click buttons or submit the form to log events.</p>
+
+        <!-- Click event button -->
+        <div class="row action-buttons center-align">
+            <div class="col s6">
+                <a class="waves-effect waves-light btn" id="clickButton">Log Click Event</a>
+            </div>
+            <div class="col s6">
+                <!-- Drop down button -->
+                <div class="dropdown">
+                    <a class="waves-effect waves-light btn dropdown-trigger" href="#" data-target="dropdown1">More Actions</a>
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="#!" id="viewLogs">View Logs</a></li>
+                        <li><a href="#!" id="hideButton">Hide Logs</a></li>
+                        <li><a href="#!" id="help">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="row">
+            <form class="col s12" id="userForm">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" type="text" class="validate" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn blue" type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="feedback center-align">
+            <h5>Last Action Logged:</h5>
+            <p id="lastAction" class="green-text"></p>
+        </div>
+
+        <!-- Logs Status -->
+        <div class="log-status center-align">
+            <h5>Server Log Summary:</h5>
+            <p id="logSummary" class="blue-text"></p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize dropdowns
+            var elems = document.querySelectorAll('.dropdown-trigger');
+            var instances = M.Dropdown.init(elems);
+        });
+    </script>
+</body>
+</html>
